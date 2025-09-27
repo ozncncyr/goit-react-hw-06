@@ -7,15 +7,8 @@ import {
 
 const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  // const search = useSelector((state) => state.filters.search.toLowerCase());
   const dispatch = useDispatch();
   const handleDelete = (id) => dispatch(deleteContact(id));
-
-  // const filteredContacts = contacts.filter(
-  //   (contact) =>
-  //     contact.name.toLowerCase().includes(search) ||
-  //     contact.number.includes(search)
-  // );
 
   const numberFormat = contacts.map((contact) =>
     contact.number.replace(/(\d{3})(\d{2})(\d{2})/, "$1-$2-$3")

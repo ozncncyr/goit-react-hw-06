@@ -65,23 +65,30 @@ const Form = () => {
       >
         {({ handleSubmit }) => (
           <form className={style.form} onSubmit={handleSubmit}>
-            <div className={style.inputDiv}>
-              {" "}
-              <label className={style.label}>Name</label>
-              <Field className={style.input} name="name" type="text" />
+            <div className={style.inputRow}>
+              <div className={style.fieldWrapper}>
+                <label className={style.label}>Name</label>
+                <Field className={style.input} name="name" type="text" />
+              </div>
               <ErrorMessage
-                className={style.error}
                 name="name"
                 component="div"
+                className={style.error}
               />
             </div>
-            <label className={style.label}>Number</label>
-            <Field className={style.input} name="number" type="tel" />
-            <ErrorMessage
-              className={style.error}
-              name="number"
-              component="div"
-            />
+
+            <div className={style.inputRow}>
+              <div className={style.fieldWrapper}>
+                <label className={style.label}>Number</label>
+                <Field className={style.input} name="number" type="tel" />
+              </div>
+              <ErrorMessage
+                name="number"
+                component="div"
+                className={style.error}
+              />
+            </div>
+
             <button className={style.button} type="submit">
               Add contact
             </button>

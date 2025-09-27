@@ -1,14 +1,19 @@
-// import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-// const filtersSlice = createSlice({
-//   name: 'filters',
-//   initialState: '',
-//   reducers: {
-//     changeFilter(state, action) {
-//       return (state = action.payload);
-//     },
-//   },
-// });
+const initialState = {
+  search: "",
+};
 
-// export const { changeFilter } = filtersSlice.actions;
-// export default filtersSlice.reducer;
+const filtersSlice = createSlice({
+  name: "filters",
+  initialState,
+  reducers: {
+    changeFilter(state, action) {
+      state.search = action.payload;
+      return state;
+    },
+  },
+});
+
+export const { changeFilter } = filtersSlice.actions;
+export default filtersSlice.reducer;

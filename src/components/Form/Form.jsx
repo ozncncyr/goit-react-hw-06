@@ -18,7 +18,7 @@ const Form = () => {
       .max(50, "Too Long!")
       .required("Required"),
     number: Yup.string()
-      .matches(/^\d{7,}$/, "Number should be at least 7 digits")
+      .matches(/^\d{7}$/, "Number must be exactly 7 digits")
       .required("Required"),
   });
 

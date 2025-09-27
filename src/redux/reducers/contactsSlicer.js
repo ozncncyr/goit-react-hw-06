@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const defaultContacts = [
-  { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-  { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-  { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-  { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+  { id: 'id-1', name: 'Rosie Simpson', number: '4591256' },
+  { id: 'id-2', name: 'Hermione Kline', number: '4438912' },
+  { id: 'id-3', name: 'Eden Clements', number: '6451779' },
+  { id: 'id-4', name: 'Annie Copeland', number: '2279126' },
 ];
 
 const getInitialContacts = () => {
@@ -19,18 +19,20 @@ const getInitialContacts = () => {
   return defaultContacts;
 };
 
-const initialState = getInitialContacts();
+const initialValues = getInitialContacts();
 
 export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: initialState,
+  initialState: initialValues,
   reducers: {
     addContact(state, action) {
-      state.push(action.payload);
+      state.items.push(action.payload);
       localStorage.setItem('contacts', JSON.stringify(state));
     },
     deleteContact(state, action) {
-      const newState = state.filter(contact => contact.id !== action.payload);
+      const newState = state.items.filter(
+        contact => contact.id !== action.payload
+      );
       localStorage.setItem('contacts', JSON.stringify(newState));
       return newState;
     },

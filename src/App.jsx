@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import ContactList from './components/ContactList/ContactList';
-import Form from './components/Form/Form';
-import './App.css';
+import { useState } from "react";
+import ContactList from "./components/ContactList/ContactList";
+import Form from "./components/Form/Form";
+import "./App.css";
 
 function App() {
   return (

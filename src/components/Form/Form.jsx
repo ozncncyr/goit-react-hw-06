@@ -1,30 +1,30 @@
-import React from 'react';
-import style from './Form.module.css';
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/reducers/contactsSlicer';
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.css';
+import React from "react";
+import style from "./Form.module.css";
+import { Formik, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { nanoid } from "nanoid";
+import { useDispatch, useSelector } from "react-redux";
+import { addContact } from "../../redux/reducers/contactsSlice";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.css";
 
 const Form = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector((state) => state.contacts.items);
 
   const validationScheme = Yup.object().shape({
     name: Yup.string()
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-      .required('Required'),
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
     number: Yup.string()
-      .matches(/^\d{7,}$/, 'Number should be at least 7 digits')
-      .required('Required'),
+      .matches(/^\d{7,}$/, "Number should be at least 7 digits")
+      .required("Required"),
   });
 
   const initialValues = {
-    name: '',
-    number: '',
+    name: "",
+    number: "",
   };
 
   return (
@@ -34,15 +34,15 @@ const Form = () => {
         validationSchema={validationScheme}
         onSubmit={(values, { resetForm }) => {
           const isDuplicate = contacts.some(
-            contact =>
+            (contact) =>
               contact.name.toLowerCase() === values.name.toLowerCase() ||
               contact.number === values.number
           );
           if (isDuplicate) {
             iziToast.error({
-              title: 'Error',
-              message: 'This contact already exists!',
-              position: 'topRight',
+              title: "Error",
+              message: "This contact already exists!",
+              position: "topRight",
               timeout: 3000,
             });
             return;
@@ -56,9 +56,9 @@ const Form = () => {
           );
           resetForm();
           iziToast.success({
-            title: 'Success',
+            title: "Success",
             message: `Contact "${values.name}" has been added`,
-            position: 'topRight',
+            position: "topRight",
             timeout: 3000,
           });
         }}
@@ -66,7 +66,7 @@ const Form = () => {
         {({ handleSubmit }) => (
           <form className={style.form} onSubmit={handleSubmit}>
             <div className={style.inputDiv}>
-              {' '}
+              {" "}
               <label className={style.label}>Name</label>
               <Field className={style.input} name="name" type="text" />
               <ErrorMessage

@@ -24,6 +24,18 @@ export const contactsSlice = createSlice({
   },
 });
 
+export const selectContacts = (state) => {
+  const search = state.filters.search.toLowerCase();
+  if (search) {
+    return state.contacts.items.filter(
+      (contact) =>
+        contact.name.toLowerCase().includes(search) ||
+        contact.number.includes(state.filters.search)
+    );
+  }
+  return state.contacts.items;
+};
+
 export const { addContact, deleteContact } = contactsSlice.actions;
 
 export default contactsSlice.reducer;

@@ -13,7 +13,11 @@ const filtersSlice = createSlice({
       return state;
     },
   },
+  selectors: {
+    selectNameFilter: (state) => state.search,
+  },
 });
 
 export const { changeFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;
+export const { selectNameFilter } = filtersSlice.selectors;

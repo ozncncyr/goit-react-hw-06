@@ -1,12 +1,80 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# React Contacts App
 
-Currently, two official plugins are available:
+This project is a simple contacts management application built with React, Redux Toolkit, and Vite. It allows users to add, search, and delete contacts. The app demonstrates basic state management using Redux and modern React features.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Add new contacts with name and phone number
+- Search contacts by name
+- Delete contacts
+- State management with Redux Toolkit
+- Modular component structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+- React
+- Redux Toolkit
+- Vite
+- CSS Modules
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+	```bash
+	git clone https://github.com/ozncncyr/goit-react-hw-06.git
+	```
+2. Navigate to the project directory:
+	```bash
+	cd goit-react-hw-06
+	```
+3. Install dependencies:
+	```bash
+	npm install
+	# or
+	yarn install
+	```
+
+### Running the App
+
+Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The app will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+### Optional: Mock API
+
+If you want to use a mock API for contacts, you can run:
+
+```bash
+json-server --watch db.json --port 3000
+```
+
+## Project Structure
+
+- `src/` - Main source code
+  - `components/` - UI components (ContactList, Form, SearchBox)
+  - `redux/` - Redux store and slices
+  - `App.jsx` - Main app component
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+
+## License
+
+This project is for educational purposes.
